@@ -7,17 +7,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-dark: #1B1E2F;
             --secondary-dark: #242F49;
             --accent-coral: #FFA586;
             --bold-red: #FF4E45;
+            --light-red: #FF6B6B;
+            --footer-red: #FF7A7A;
             --gradient-red: linear-gradient(135deg, #FF4E45 0%, #FFA586 100%);
+            --gradient-light-red: linear-gradient(135deg, #FF6B6B 0%, #FF9E7D 100%);
             --gradient-blue: linear-gradient(135deg, #242F49 0%, #1B1E2F 100%);
             --gradient-coral: linear-gradient(135deg, #FFA586 0%, #FFD1C2 100%);
-            --font-primary: 'Inter', sans-serif;
+            --font-primary: 'Montserrat', sans-serif;
             --font-heading: 'Poppins', sans-serif;
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
             --glass-bg: rgba(36, 47, 73, 0.7);
@@ -69,7 +72,7 @@
             font-size: 2.8rem;
             margin-bottom: 20px;
             text-align: center;
-            background: linear-gradient(to right, #fff, var(--accent-coral));
+            background: linear-gradient(to right, #fff, var(--light-red));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -84,7 +87,7 @@
             position: absolute;
             width: 80px;
             height: 4px;
-            background: var(--gradient-red);
+            background: var(--gradient-light-red);
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
@@ -92,7 +95,7 @@
         }
 
         .gradient-text {
-            background: var(--gradient-red);
+            background: var(--gradient-light-red);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -113,17 +116,18 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            font-family: var(--font-primary);
         }
 
         .btn-primary {
-            background: var(--gradient-red);
+            background: var(--gradient-light-red);
             color: white;
-            box-shadow: 0 8px 20px rgba(255, 78, 69, 0.3);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255, 78, 69, 0.4);
+            box-shadow: 0 15px 30px rgba(255, 107, 107, 0.4);
         }
 
         .btn-secondary {
@@ -134,8 +138,8 @@
         }
 
         .btn-secondary:hover {
-            border-color: var(--accent-coral);
-            background: rgba(255, 165, 134, 0.1);
+            border-color: var(--light-red);
+            background: rgba(255, 107, 107, 0.1);
             transform: translateY(-5px);
         }
 
@@ -152,7 +156,7 @@
         .bg-circle-1 {
             width: 600px;
             height: 600px;
-            background: var(--gradient-red);
+            background: var(--gradient-light-red);
             top: -200px;
             right: -200px;
             animation: float 20s infinite ease-in-out;
@@ -161,7 +165,7 @@
         .bg-circle-2 {
             width: 400px;
             height: 400px;
-            background: var(--accent-coral);
+            background: var(--light-red);
             bottom: -100px;
             left: -100px;
             animation: float 15s infinite ease-in-out reverse;
@@ -170,7 +174,7 @@
         .bg-circle-3 {
             width: 300px;
             height: 300px;
-            background: #4A9EFF;
+            background: #FF9E7D;
             top: 40%;
             right: 20%;
             animation: float 25s infinite ease-in-out;
@@ -186,8 +190,8 @@
         .floating-element.small {
             width: 10px;
             height: 10px;
-            background: var(--accent-coral);
-            box-shadow: 0 0 15px var(--accent-coral);
+            background: var(--light-red);
+            box-shadow: 0 0 15px var(--light-red);
         }
 
         .floating-element.medium {
@@ -209,13 +213,8 @@
         }
 
         @keyframes glow {
-            0%, 100% { box-shadow: 0 0 10px var(--accent-coral); }
-            50% { box-shadow: 0 0 25px var(--accent-coral); }
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            0%, 100% { box-shadow: 0 0 10px var(--light-red); }
+            50% { box-shadow: 0 0 25px var(--light-red); }
         }
 
         /* Navigation */
@@ -242,19 +241,14 @@
             align-items: center;
         }
 
-        .logo {
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            font-weight: 800;
-            color: white;
-            text-decoration: none;
+        .logo-img {
+            height: 50px;
+            width: auto;
+            transition: var(--transition);
         }
 
-        .logo span {
-            background: var(--gradient-red);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .logo-img:hover {
+            transform: scale(1.05);
         }
 
         .nav-links {
@@ -270,10 +264,11 @@
             font-size: 1rem;
             transition: var(--transition);
             position: relative;
+            font-family: var(--font-primary);
         }
 
         .nav-links a:hover {
-            color: var(--accent-coral);
+            color: var(--light-red);
         }
 
         .nav-links a::after {
@@ -281,7 +276,7 @@
             position: absolute;
             width: 0;
             height: 2px;
-            background: var(--gradient-red);
+            background: var(--gradient-light-red);
             bottom: -5px;
             left: 0;
             transition: var(--transition);
@@ -326,6 +321,7 @@
             margin-bottom: 30px;
             color: rgba(255, 255, 255, 0.8);
             max-width: 700px;
+            font-family: var(--font-primary);
         }
 
         .hero-badge {
@@ -340,7 +336,7 @@
 
         .hero-badge span {
             margin: 0 10px;
-            color: var(--accent-coral);
+            color: var(--light-red);
         }
 
         .hero-buttons {
@@ -385,6 +381,7 @@
             font-size: 1.1rem;
             margin-bottom: 30px;
             color: rgba(255, 255, 255, 0.8);
+            font-family: var(--font-primary);
         }
 
         .features-grid {
@@ -407,7 +404,7 @@
 
         .feature-card:hover {
             transform: translateY(-10px);
-            border-color: rgba(255, 165, 134, 0.3);
+            border-color: rgba(255, 107, 107, 0.3);
             box-shadow: var(--shadow-lg);
         }
 
@@ -432,18 +429,22 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: rgba(255, 165, 134, 0.1);
+            background: rgba(255, 107, 107, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
             font-size: 1.5rem;
-            color: var(--accent-coral);
+            color: var(--light-red);
         }
 
         .feature-card h3 {
             font-size: 1.3rem;
             margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-family: var(--font-primary);
         }
 
         /* Timeline Section */
@@ -459,7 +460,7 @@
             transform: translateX(-50%);
             width: 4px;
             height: 100%;
-            background: var(--gradient-red);
+            background: var(--gradient-light-red);
         }
 
         .timeline-item {
@@ -487,7 +488,7 @@
             height: 60px;
             border-radius: 50%;
             background: var(--gradient-blue);
-            border: 4px solid var(--bold-red);
+            border: 4px solid var(--light-red);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -514,24 +515,29 @@
 
         .timeline-content:hover {
             transform: translateY(-5px);
-            border-color: rgba(255, 165, 134, 0.3);
+            border-color: rgba(255, 107, 107, 0.3);
             box-shadow: var(--shadow-lg);
         }
 
         .timeline-date {
             display: inline-block;
-            background: var(--gradient-red);
+            background: var(--gradient-light-red);
             color: white;
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 15px;
+            font-family: var(--font-primary);
         }
 
         .timeline-content h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            font-family: var(--font-primary);
         }
 
         /* Phases Section */
@@ -557,7 +563,7 @@
         .phase-card:hover {
             transform: translateY(-10px) rotateX(5deg);
             box-shadow: var(--shadow-xl);
-            border-color: rgba(255, 165, 134, 0.3);
+            border-color: rgba(255, 107, 107, 0.3);
         }
 
         .phase-badge {
@@ -567,7 +573,7 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background: var(--gradient-red);
+            background: var(--gradient-light-red);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -581,18 +587,22 @@
             width: 70px;
             height: 70px;
             border-radius: 50%;
-            background: rgba(255, 165, 134, 0.1);
+            background: rgba(255, 107, 107, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 25px;
             font-size: 2rem;
-            color: var(--accent-coral);
+            color: var(--light-red);
         }
 
         .phase-card h3 {
             font-size: 1.8rem;
             margin-bottom: 15px;
+        }
+
+        .phase-card p {
+            font-family: var(--font-primary);
         }
 
         /* Partner Section */
@@ -616,28 +626,31 @@
         .partner-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-xl);
-            border-color: rgba(255, 165, 134, 0.3);
+            border-color: rgba(255, 107, 107, 0.3);
             animation: glow 3s infinite;
         }
 
-        .partner-logo {
-            width: 200px;
+        .partner-logo-img {
             height: 100px;
-            background: white;
-            border-radius: var(--radius-md);
+            width: auto;
             margin: 0 auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary-dark);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: block;
+            filter: brightness(0) invert(1);
+            transition: var(--transition);
+        }
+
+        .partner-card:hover .partner-logo-img {
+            filter: none;
+            transform: scale(1.05);
         }
 
         .partner-card h3 {
             font-size: 2.2rem;
             margin-bottom: 20px;
+        }
+
+        .partner-card p {
+            font-family: var(--font-primary);
         }
 
         /* Registration Section */
@@ -656,6 +669,7 @@
             max-width: 700px;
             margin: 0 auto 50px;
             color: rgba(255, 255, 255, 0.8);
+            font-family: var(--font-primary);
         }
 
         .registration-card {
@@ -676,7 +690,7 @@
             position: absolute;
             width: 300px;
             height: 300px;
-            background: var(--gradient-red);
+            background: var(--gradient-light-red);
             border-radius: 50%;
             top: -150px;
             right: -150px;
@@ -689,7 +703,7 @@
             position: absolute;
             width: 200px;
             height: 200px;
-            background: var(--accent-coral);
+            background: var(--light-red);
             border-radius: 50%;
             bottom: -100px;
             left: -100px;
@@ -703,12 +717,16 @@
             padding: 25px;
             margin-bottom: 40px;
             text-align: left;
-            border-left: 4px solid var(--accent-coral);
+            border-left: 4px solid var(--light-red);
         }
 
         .registration-instructions h4 {
             margin-bottom: 10px;
-            color: var(--accent-coral);
+            color: var(--light-red);
+        }
+
+        .registration-instructions p {
+            font-family: var(--font-primary);
         }
 
         .form-link-container {
@@ -725,11 +743,12 @@
             font-size: 1rem;
             margin-bottom: 20px;
             transition: var(--transition);
+            font-family: var(--font-primary);
         }
 
         .form-link-container input:focus {
             outline: none;
-            border-color: var(--accent-coral);
+            border-color: var(--light-red);
             background: rgba(255, 255, 255, 0.08);
         }
 
@@ -737,23 +756,49 @@
             margin-top: 25px;
             color: rgba(255, 255, 255, 0.6);
             font-size: 0.9rem;
+            font-family: var(--font-primary);
         }
 
         .urgent-badge {
             display: inline-flex;
-            background: rgba(255, 78, 69, 0.2);
-            color: #FF9C96;
+            background: rgba(255, 107, 107, 0.2);
+            color: #FFB5B5;
             padding: 8px 20px;
             border-radius: 50px;
             font-weight: 600;
             margin-top: 30px;
-            border: 1px solid rgba(255, 78, 69, 0.3);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            font-family: var(--font-primary);
         }
 
         /* Footer */
         footer {
-            background: var(--secondary-dark);
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF4E45 100%);
             padding: 60px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -150px;
+            right: -150px;
+        }
+
+        footer::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -100px;
         }
 
         .footer-content {
@@ -761,6 +806,8 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
         }
 
         .footer-logo {
@@ -771,7 +818,7 @@
         }
 
         .footer-logo span {
-            background: var(--gradient-red);
+            background: rgba(255, 255, 255, 0.9);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -779,8 +826,10 @@
 
         .footer-tagline {
             margin-top: 10px;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.9);
             max-width: 300px;
+            font-family: var(--font-primary);
+            font-weight: 500;
         }
 
         .social-links {
@@ -792,7 +841,7 @@
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -802,16 +851,19 @@
         }
 
         .social-links a:hover {
-            background: var(--gradient-red);
+            background: rgba(255, 255, 255, 0.3);
             transform: translateY(-5px);
         }
 
         .copyright {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.9);
             font-size: 0.9rem;
+            font-family: var(--font-primary);
+            position: relative;
+            z-index: 1;
         }
 
         /* Responsive Design */
@@ -916,6 +968,14 @@
             .phase-card, .feature-card, .timeline-content {
                 padding: 25px;
             }
+            
+            .logo-img {
+                height: 40px;
+            }
+            
+            .partner-logo-img {
+                height: 80px;
+            }
         }
     </style>
 </head>
@@ -935,7 +995,10 @@
     <header id="header">
         <div class="container">
             <nav>
-                <a href="#" class="logo">Brain<span>Link</span></a>
+                <!-- Replace text with Picture1 image -->
+                <a href="#">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="BrainLink Logo" class="logo-img">
+                </a>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -1082,41 +1145,4 @@
     </section>
 
     <!-- Phases Section -->
-    <section id="phases">
-        <div class="container">
-            <h2 class="section-title">Competition Phases</h2>
-            <div class="phases-container">
-                <div class="phase-card">
-                    <div class="phase-badge">01</div>
-                    <div class="phase-icon">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h3>Phase 01: Semifinals</h3>
-                    <p>Teams present their innovative solutions based on the challenge brief from our partner company. Presentations are evaluated on creativity, feasibility, and potential impact. The best teams advance to the finals with feedback for improvement.</p>
-                    <p>This phase focuses on idea validation, initial prototyping, and effective communication of the solution concept.</p>
-                </div>
-                
-                <div class="phase-card">
-                    <div class="phase-badge">02</div>
-                    <div class="phase-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <h3>Phase 02: Finals</h3>
-                    <p>Finalist teams refine their solutions with mentorship and present to an expert panel including executives from Henkel Algeria. The focus is on implementation strategy, business model, and scalability.</p>
-                    <p>Winners are selected based on innovation, technical excellence, business viability, and presentation quality. Awards and recognition are presented at a special ceremony.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partner Section -->
-    <section id="partner">
-        <div class="container">
-            <h2 class="section-title">Our Partner</h2>
-            <div class="partner-container">
-                <div class="partner-card">
-                    <div class="partner-logo">
-                        HENKEL
-                    </div>
-                    <h3>Henkel Algeria</h3>
-                    <p>Henkel operates worldwide with leading brands and technologies in three business areas: Laundry
+   
