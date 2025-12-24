@@ -605,52 +605,64 @@
             font-family: var(--font-primary);
         }
 
-        /* Partner Section */
-        .partner-container {
-            max-width: 700px;
-            margin: 60px auto 0;
-        }
-
-        .partner-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border-radius: var(--radius-lg);
-            padding: 60px 40px;
-            border: 1px solid var(--glass-border);
-            transition: var(--transition);
-            text-align: center;
+       /* Partner Section */
+        .partner {
+            background-color: var(--secondary-dark);
             position: relative;
             overflow: hidden;
         }
 
+        .partner-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius);
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
         .partner-card:hover {
             transform: translateY(-10px);
-            box-shadow: var(--shadow-xl);
-            border-color: rgba(255, 107, 107, 0.3);
-            animation: glow 3s infinite;
+            background-color: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 107, 107, 0.2); /* Light red */
+            box-shadow: var(--shadow-hover);
         }
 
-        .partner-logo-img {
-            height: 100px;
-            width: auto;
-            margin: 0 auto 30px;
-            display: block;
-            filter: brightness(0) invert(1);
-            transition: var(--transition);
+        .partner-logo-container {
+            width: 300px;
+            height: 150px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .partner-card:hover .partner-logo-img {
-            filter: none;
-            transform: scale(1.05);
+        .partner-logo {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
 
-        .partner-card h3 {
-            font-size: 2.2rem;
+        .partner-name {
+            font-size: 2.5rem;
             margin-bottom: 20px;
+            color: var(--accent-coral); /* Light red */
         }
 
-        .partner-card p {
-            font-family: var(--font-primary);
+        .partner-desc {
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .partner-highlight {
+            color: var(--accent-coral); /* Light red */
+            font-weight: 600;
         }
 
         /* Registration Section */
@@ -991,25 +1003,41 @@
     <div class="floating-element small" style="top: 30%; right: 15%; animation: float 18s infinite ease-in-out;"></div>
     <div class="floating-element medium" style="bottom: 30%; right: 10%; animation: float 20s infinite ease-in-out reverse;"></div>
 
-    <!-- Navigation -->
+      <!-- Header & Navigation -->
     <header id="header">
         <div class="container">
-            <nav>
-                <!-- Replace text with Picture1 image -->
-                <a href="#">
-                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="BrainLink Logo" class="logo-img">
+            <nav class="navbar">
+                <!-- LOGO - Using Picture1.png -->
+                <a href="#home" class="logo">
+                    <img src="Picture1.png" alt="BrainLink Competition" onerror="this.style.display='none'; document.querySelector('.logo-text').style.display='block';">
+                    <!-- Text fallback -->
+                    <div class="logo-text" style="display: none;">BrainLink</div>
                 </a>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#timeline">Timeline</a></li>
-                    <li><a href="#phases">Phases</a></li>
-                    <li><a href="#partner">Partner</a></li>
-                    <li><a href="#register" class="btn btn-primary">Register</a></li>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#phases" class="nav-link">Phases</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#partner" class="nav-link">Partner</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#registration" class="nav-link">Register</a>
+                    </li>
+                    <li class="nav-item nav-cta">
+                        <a href="#registration" class="btn btn-primary">Register Now</a>
+                    </li>
                 </ul>
-                <button class="mobile-menu-btn">
+                
+                <div class="hamburger">
                     <i class="fas fa-bars"></i>
-                </button>
+                </div>
             </nav>
         </div>
     </header>
@@ -1144,5 +1172,198 @@
         </div>
     </section>
 
-    <!-- Phases Section -->
+   <!-- Phases Section -->
+    <section class="phases section" id="phases">
+        <div class="container">
+            <h2 class="section-title">Competition Phases</h2>
+            <p class="section-subtitle">The competition unfolds in two exciting phases, each designed to challenge participants and showcase their innovative solutions.</p>
+            
+            <div class="phase-cards">
+                <div class="phase-card">
+                    <div class="phase-badge">01</div>
+                    <div class="phase-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3 class="phase-title">Semifinals</h3>
+                    <div class="phase-subtitle">Initial Presentations</div>
+                    <p class="phase-desc">Teams present their initial solutions to a panel of judges. The best teams from this round will advance to the finals. This phase focuses on the core concept, feasibility, and potential impact of the proposed solutions.</p>
+                </div>
+                
+                <div class="phase-card">
+                    <div class="phase-badge">02</div>
+                    <div class="phase-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="phase-title">Finals</h3>
+                    <div class="phase-subtitle">Expert Panel Judging</div>
+                    <p class="phase-desc">Finalists present refined solutions to an expert panel including representatives from Henkel Algeria. This phase evaluates implementation strategy, business viability, and presentation quality to determine the winning team.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Section -->
+    <section class="partner section" id="partner">
+        <div class="container">
+            <h2 class="section-title">Our Partner</h2>
+            <p class="section-subtitle">BrainLink is proud to partner with industry leaders who provide real-world challenges and mentorship.</p>
+            
+            <div class="partner-card">
+                <!-- Henkel Logo using 1200px-Henkel-Logo.svg.png -->
+                <div class="partner-logo-container">
+                    <img src="1200px-Henkel-Logo.svg.png" alt="Henkel Algeria" class="partner-logo">
+                </div>
+                <h3 class="partner-name">Henkel Algeria</h3>
+                <p class="partner-desc">Henkel operates worldwide with leading brands and technologies in three business areas: Laundry & Home Care, Beauty Care, and Adhesive Technologies. Founded in 1876, Henkel looks back on more than 140 years of success.</p>
+                <p class="partner-desc">Through this partnership, <span class="partner-highlight">Henkel Algeria provides real business challenges</span> for students to solve, offering valuable industry insights and access to experienced mentors. This collaboration creates a direct pipeline between academic excellence and industry needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section class="registration section" id="registration">
+        <div class="container">
+            <div class="registration-content">
+                <h2 class="section-title">Ready to Innovate?</h2>
+                <p class="section-subtitle">Join the BrainLink Competition and showcase your skills to solve real business challenges. Registration is open to all university students in business and engineering disciplines.</p>
+                
+                <div class="registration-instructions">
+                    <h3 class="instructions-title">How to Register:</h3>
+                    <ul class="instructions-list">
+                        <li>Form a team of 3-5 students (mix of business and engineering students preferred)</li>
+                        <li>Choose a team name and select a team captain</li>
+                        <li>Click the "Register Your Team" button below</li>
+                        <li>Complete the registration form with all required information</li>
+                        <li>Submit before the registration deadline</li>
+                    </ul>
+                    <p><strong>Note:</strong> Registration is free and open to all university students. The competition will provide detailed briefs from Henkel Algeria after registration closes.</p>
+                </div>
+                
+                <div class="form-link-container">
+                    <h3 class="form-link-title">Registration Form</h3>
+                    <!-- Replace this link with your actual Google Form link -->
+                    <a href="https://forms.google.com/your-form-link-here" class="form-link" id="form-link" target="_blank">
+                        https://forms.google.com/your-form-link-here
+                    </a>
+                    <p class="registration-note">Click the link above or the button below to access the registration form. Make sure to complete all required fields.</p>
+                </div>
+                
+                <a href="https://forms.google.com/your-form-link-here" class="btn btn-primary" target="_blank" style="padding: 20px 50px; font-size: 1.2rem;">
+                    <i class="fas fa-user-plus" style="margin-right: 10px;"></i> Register Your Team
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Footer Logo - Using same Picture1.png -->
+                <a href="#home" class="footer-logo">
+                    <img src="Picture1.png" alt="BrainLink Competition">
+                </a>
+                
+                <div class="footer-social">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/elite_esgen?igsh=cG5ldTBua2xwM2Uz" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 BrainLink Competition. All rights reserved.</p>
+                <p>Bringing together business and engineering students to solve real-world challenges.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.querySelector('i').classList.toggle('fa-bars');
+            hamburger.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.querySelector('i').classList.remove('fa-times');
+                hamburger.querySelector('i').classList.add('fa-bars');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Update active nav link based on scroll position
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Scroll indicator functionality
+        const scrollIndicator = document.getElementById('scroll-indicator');
+        scrollIndicator.addEventListener('click', () => {
+            window.scrollTo({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Hide scroll indicator after
+
    
